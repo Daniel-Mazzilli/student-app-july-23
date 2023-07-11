@@ -1,0 +1,16 @@
+.searchBar input {
+    margin: 0 2%;
+    background-color: white;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+    width: 96%;
+    padding-top: 15px;
+    padding-bottom: 1px;
+    font-size: 18px;
+}
+
+input:focus {
+    outline: none;
+    padding-bottom: 0;
+    border-bottom: 2px solid purple;
+}

@@ -1,4 +1,4 @@
-import StudentCardList from './components/studentCardList/StudentCardList';
+import StudentCardList from './components/studentCardList/StudentCardList.js';
 import './App.scss';
 
 function App() {
