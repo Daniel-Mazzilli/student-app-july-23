@@ -1,19 +1,24 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "./SearchBar.scss";
 
-export default function SearchBar({ setStudents, students, allStudents }) {
-  const [searchBarInput, setSearchBarInput] = useState("");
-
+export default function SearchBar({
+  setFilteredStudents,
+  students,
+  searchBarInput,
+  setSearchBarInput,
+}) {
   useEffect(() => {
-    setStudents(allStudents);
+    setFilteredStudents(students);
 
     if (searchBarInput !== "") {
-      setStudents(
-        allStudents.filter(
-          ({ firstName, lastName }) =>
-            firstName.toLowerCase().includes(searchBarInput.toLowerCase()) ||
-            lastName.toLowerCase().includes(searchBarInput.toLowerCase())
-        )
+      const searchBarInputs = searchBarInput.split(" ");
+      setFilteredStudents(
+        students.filter(({ firstName, lastName }) => {
+          const fullName = firstName + " " + lastName;
+          return searchBarInputs.every((e) =>
+            fullName.toLowerCase().includes(e)
+          );
+        })
       );
     }
   }, [searchBarInput]);
@@ -25,6 +30,7 @@ export default function SearchBar({ setStudents, students, allStudents }) {
   return (
     <div className="searchBar">
       <input
+        className="searchBar__input"
         type="text"
         placeholder="Search by name"
         value={searchBarInput}
