@@ -1,6 +1,5 @@
 .studentCard {
     padding: 15px 25px;
-    // border: 1px solid black;
     display: flex;
     align-items: center;
     font-family: "Raleway", sans-serif;
@@ -14,13 +13,31 @@
       border-radius: 50%;
       overflow: hidden;
       margin-right: 40px;
+      align-self: flex-start;
       
       img {
         width: inherit;
         height: inherit;
       }
     }
-    
+
+    &__studentInfo {
+      // border: 2px solid red;
+      width: 600px;
+    }
+
+      &__button {
+        all: unset;
+        font-size: 40px;
+        text-align: right;
+        align-self: flex-start;
+        color: grey;
+    }
+
+    &__button:hover {
+      color: black;
+    }
+
     &__name {
       font-size: 40px;
       text-transform: uppercase;
@@ -33,5 +50,9 @@
       margin-left: 20px;
       margin-bottom: 3px;
       font-size: 1.1em;
+
+      & span {
+        padding-left: 30px;
+      }
     }
   }
